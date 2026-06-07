@@ -7,7 +7,7 @@
   <meta name="description" content="奈良県橿原市のまつげサロンWHITE。LEDマツエク、LEDエクステパーマ、韓国マスカラパーマが人気。真菅駅徒歩10分、無料駐車場あり。受賞歴のあるアイリストが目元に合わせて丁寧にデザインします。">
   <meta name="keywords" content="奈良 まつげパーマ,奈良 LEDマツエク,橿原 マツエク,橿原 まつげパーマ,真菅 まつげサロン,LEDエクステ 奈良,韓国マスカラパーマ 奈良">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://example.com/">
+  <link rel="canonical" href="https://white-salon-lp.vercel.app/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="WHITE｜奈良・橿原のLEDマツエク・まつげパーマ専門サロン">
   <meta property="og:description" content="口コミ平均4.89。奈良県橿原市・真菅駅徒歩10分。LEDマツエクとまつげパーマで、もちの良い上品な目元へ。">
@@ -20,7 +20,7 @@
     "@type": "BeautySalon",
     "name": "WHITE（ホワイト）",
     "image": "assets/hero-eye.png",
-    "url": "https://example.com/",
+    "url": "https://white-salon-lp.vercel.app/",
     "sameAs": ["https://beauty.hotpepper.jp/kr/slnH000650204/"],
     "description": "奈良県橿原市のLEDマツエク・まつげパーマ専門サロン。真菅駅徒歩10分、無料駐車場あり。受賞歴のあるアイリストが在籍。",
     "priceRange": "¥4,900〜¥11,000",
@@ -462,58 +462,26 @@
     }
     .blog-layout {
       display: grid;
-      grid-template-columns: .88fr 1.12fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 22px;
-      align-items: start;
     }
-    .blog-form,
-    .blog-panel {
+    .blog-post {
       border: 1px solid var(--line);
       background: rgba(255,253,250,.9);
       box-shadow: 0 18px 45px rgba(68,50,38,.06);
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .blog-form { padding: 26px; }
-    .blog-field { display: grid; gap: 7px; margin-bottom: 16px; }
-    .blog-field label {
-      color: var(--clay);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .08em;
+    .blog-post:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 55px rgba(68,50,38,.1);
     }
-    .blog-field input,
-    .blog-field select,
-    .blog-field textarea {
+    .blog-thumb {
+      aspect-ratio: 16 / 10;
       width: 100%;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--ink);
-      font: inherit;
-      font-size: 15px;
-      line-height: 1.6;
-      padding: 12px 13px;
-      border-radius: 0;
+      object-fit: cover;
     }
-    .blog-field textarea { min-height: 170px; resize: vertical; }
-    .blog-form button,
-    .blog-delete {
-      min-height: 44px;
-      border: 0;
-      color: var(--white);
-      font: inherit;
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-    .blog-form button {
-      width: 100%;
-      background: var(--ink);
-    }
-    .blog-panel { padding: 8px; }
-    .blog-post {
-      padding: 22px;
-      border-bottom: 1px solid var(--line);
-    }
-    .blog-post:last-child { border-bottom: 0; }
+    .blog-body { padding: 22px; }
     .blog-meta {
       display: flex;
       flex-wrap: wrap;
@@ -530,16 +498,22 @@
       color: var(--sage);
     }
     .blog-post h3 { margin-bottom: 8px; }
-    .blog-post p { margin-bottom: 14px; color: var(--soft); white-space: pre-wrap; }
-    .blog-delete {
-      min-height: 34px;
-      padding: 0 12px;
+    .blog-post p { margin-bottom: 18px; color: var(--soft); }
+    .blog-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 16px;
       background: var(--clay);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 800;
     }
-    .blog-empty {
-      padding: 26px;
-      color: var(--soft);
-      text-align: center;
+    .blog-more {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
     }
 
     .bottom-cta {
@@ -831,30 +805,38 @@
         <div class="section-head">
           <p class="eyebrow">Blog</p>
           <h2>サロンブログ</h2>
-          <p class="muted">LEDマツエクやまつげパーマの仕上がり、ケア方法、空き状況のお知らせを更新できます。</p>
+          <p class="muted">Hot Pepper Beautyで更新中の最新ブログを掲載しています。LEDマツエクやまつげパーマの仕上がり、限定メニューのお知らせをご確認ください。</p>
         </div>
         <div class="blog-layout">
-          <form class="blog-form" id="blogForm">
-            <div class="blog-field">
-              <label for="blogTitle">タイトル</label>
-              <input id="blogTitle" name="title" type="text" placeholder="例：LEDエクステ×パーマの人気デザイン" required>
+          <article class="blog-post">
+            <img class="blog-thumb" src="https://imgbp.hotp.jp/CSP/IMG_BLOG_ORG_K/57/21/I158755721/I158755721.jpg?impolicy=HPB_policy_nonmargin&w=680&h=420" alt="Jrアイリスト限定メニューの施術写真" loading="lazy">
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>2026.06.05</span>
+                <span class="blog-category">おすすめメニュー</span>
+                <span>mayu</span>
+              </div>
+              <h3>Jrアイリスト限定メニュー</h3>
+              <p>LEDダブルフラット付け放題をJrアイリスト限定価格でご案内中。ボリューム感のある目元を試したい方におすすめです。</p>
+              <a class="blog-link" href="https://beauty.hotpepper.jp/kr/slnH000650204/blog/bidA117382840.html" target="_blank" rel="noopener">Hot Pepper Beautyで読む</a>
             </div>
-            <div class="blog-field">
-              <label for="blogCategory">カテゴリー</label>
-              <select id="blogCategory" name="category">
-                <option>まつげデザイン</option>
-                <option>LEDマツエク</option>
-                <option>まつげパーマ</option>
-                <option>サロンのお知らせ</option>
-              </select>
+          </article>
+          <article class="blog-post">
+            <img class="blog-thumb" src="https://imgbp.hotp.jp/CSP/IMG_BLOG_ORG_K/98/07/I158699807/I158699807.jpg?impolicy=HPB_policy_nonmargin&w=680&h=420" alt="Jrアイリスト限定メニューのまつげデザイン" loading="lazy">
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>2026.06.05</span>
+                <span class="blog-category">おすすめメニュー</span>
+                <span>WHITE</span>
+              </div>
+              <h3>Jrアイリスト限定メニュー</h3>
+              <p>通常よりお得に施術を受けられる限定メニューのお知らせです。LEDマツエクやまつげパーマを気軽に相談できます。</p>
+              <a class="blog-link" href="https://beauty.hotpepper.jp/kr/slnH000650204/blog/bidA117337992.html" target="_blank" rel="noopener">Hot Pepper Beautyで読む</a>
             </div>
-            <div class="blog-field">
-              <label for="blogBody">本文</label>
-              <textarea id="blogBody" name="body" placeholder="本文を入力してください" required></textarea>
-            </div>
-            <button type="submit">ブログを投稿する</button>
-          </form>
-          <div class="blog-panel" id="blogList" aria-live="polite"></div>
+          </article>
+        </div>
+        <div class="blog-more">
+          <a class="reserve" href="https://beauty.hotpepper.jp/kr/slnH000650204/blog/" target="_blank" rel="noopener">ブログ一覧を見る</a>
         </div>
       </div>
     </section>
@@ -884,87 +866,5 @@
     <a class="float-line" href="#line-reserve">LINE予約</a>
     <a class="float-hpb" href="https://beauty.hotpepper.jp/kr/slnH000650204/" target="_blank" rel="noopener">Hot Pepper Beauty</a>
   </div>
-  <script>
-    const blogForm = document.getElementById("blogForm");
-    const blogList = document.getElementById("blogList");
-    const storageKey = "white-salon-blog-posts";
-    const initialPosts = [
-      {
-        id: "sample-led",
-        title: "LEDマツエクで長持ちする上品な目元へ",
-        category: "LEDマツエク",
-        body: "奈良・橿原で人気のLEDマツエクは、きれいな仕上がりを長く楽しみたい方におすすめです。ナチュラルな本数から華やかなボリュームまで、目の形に合わせてご提案します。",
-        date: "2026-06-06"
-      },
-      {
-        id: "sample-lashlift",
-        title: "まつげパーマとLEDエクステの組み合わせ",
-        category: "まつげパーマ",
-        body: "下がりまつげが気になる方には、LEDエクステ×パーマのメニューも人気です。根元から立ち上げることで、ぱっちりとした印象に仕上がります。",
-        date: "2026-06-06"
-      }
-    ];
-
-    const getPosts = () => {
-      const saved = localStorage.getItem(storageKey);
-      return saved ? JSON.parse(saved) : initialPosts;
-    };
-
-    const savePosts = (posts) => {
-      localStorage.setItem(storageKey, JSON.stringify(posts));
-    };
-
-    const escapeHtml = (value) => value.replace(/[&<>"']/g, (char) => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;",
-      "'": "&#039;"
-    }[char]));
-
-    const renderPosts = () => {
-      const posts = getPosts();
-      if (!posts.length) {
-        blogList.innerHTML = '<p class="blog-empty">まだ投稿はありません。</p>';
-        return;
-      }
-      blogList.innerHTML = posts.map((post) => `
-        <article class="blog-post">
-          <div class="blog-meta">
-            <span>${escapeHtml(post.date)}</span>
-            <span class="blog-category">${escapeHtml(post.category)}</span>
-          </div>
-          <h3>${escapeHtml(post.title)}</h3>
-          <p>${escapeHtml(post.body)}</p>
-          <button class="blog-delete" type="button" data-delete="${escapeHtml(post.id)}">削除</button>
-        </article>
-      `).join("");
-    };
-
-    blogForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const formData = new FormData(blogForm);
-      const today = new Date().toISOString().slice(0, 10);
-      const post = {
-        id: `${Date.now()}`,
-        title: formData.get("title").trim(),
-        category: formData.get("category"),
-        body: formData.get("body").trim(),
-        date: today
-      };
-      savePosts([post, ...getPosts()]);
-      blogForm.reset();
-      renderPosts();
-    });
-
-    blogList.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-delete]");
-      if (!button) return;
-      savePosts(getPosts().filter((post) => post.id !== button.dataset.delete));
-      renderPosts();
-    });
-
-    renderPosts();
-  </script>
 </body>
 </html>
